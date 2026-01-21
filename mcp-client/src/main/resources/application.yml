@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: spring-ai-mco-client
+  profiles:
+    active: dev
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      base-url: ${OPENAI_BASE_URL}
+      chat:
+        options:
+          model: ${OPENAI_MODEL}
+    # ===================== Redis 向量库配置（适配 ONNX 384 维） =====================
+    vectorstore:
+      redis:
+        initialize-schema: true
+        index-name: lee-vectorstore
+        prefix: 'embedding:'
+  # ===================== Redis 连接配置 =====================
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 9379
+      password: 123456
+logging:
+  level:
+    root: info
+    # 调试 ONNX 加载日志，确认模型生效
+    org.springframework.ai.onnx: debug
+    # 关闭 OpenAI 嵌入日志，减少干扰
+    org.springframework.ai.openai.embedding: error
