@@ -20,5 +20,4 @@ public class ChatController {
         chatService.doChat(chatEntity);
     }
 
-
 }

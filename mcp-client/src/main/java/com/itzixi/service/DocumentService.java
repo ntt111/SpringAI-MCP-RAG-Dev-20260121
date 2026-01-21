@@ -13,4 +13,12 @@ public interface DocumentService {
      * @return
      */
     public List<Document> loadText(Resource resource, String fileName);
+
+    /**
+     * Rag知识库检索
+     * @param question
+     * @param ragContext
+     * @return
+     */
+    public List<Document> doSearch(String question);
 }

@@ -5,7 +5,6 @@ import com.itzixi.utils.CustomTextSplitter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.TextReader;
-import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.redis.RedisVectorStore;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;;import java.util.List;
@@ -37,4 +36,11 @@ public class DocumentServiceImpl implements DocumentService {
         vectorStore.add(list);
         return documentList;
     }
+
+    @Override
+    public List<Document> doSearch(String question) {
+        return vectorStore.similaritySearch(question);
+    }
+
+
 }

@@ -60,7 +60,6 @@ public class SSEServer {
                 .id(userId)
                 .data(message)
                 .name(msgType.type);
-        System.out.println("123456789========");
         try {
             sseEmitter.send(event);
         } catch (IOException e) {
