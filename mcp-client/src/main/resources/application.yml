@@ -32,3 +32,8 @@ logging:
     org.springframework.web.reactive.function.client: TRACE
     # 打印Spring AI的调试信息
     org.springframework.ai: DEBUG
+internet:
+  websearch:
+    searxng:
+      url: http://localhost:6080/search
+      counts: 10

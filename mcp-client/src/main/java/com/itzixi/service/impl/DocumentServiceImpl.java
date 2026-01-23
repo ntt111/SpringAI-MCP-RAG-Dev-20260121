@@ -7,7 +7,8 @@ import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.TextReader;
 import org.springframework.ai.vectorstore.redis.RedisVectorStore;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Service;;import java.util.List;
+import org.springframework.stereotype.Service;
+import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class DocumentServiceImpl implements DocumentService {
