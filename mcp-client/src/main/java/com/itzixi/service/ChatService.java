@@ -44,4 +44,12 @@ public interface ChatService {
      */
     public void doChatRagSearch(ChatEntity chatEntity, List<Document> ragContext);
 
+    /**
+     * 基于searXNG实时联网搜索
+     * @param
+     * @param chatEntity
+     * @return
+     */
+    public void doInternetSearch(ChatEntity chatEntity);
+
 }
