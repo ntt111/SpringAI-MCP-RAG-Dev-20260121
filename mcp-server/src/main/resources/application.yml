@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: spring-ai-mcp-server
+  profiles:
+    active: dev
+  ai:
+    mcp:
+      server:
+        name: spring-ai-mcp-server-sse
+        version: 1.0.0
+        sse-endpoint: /sse
+        type: async
+  # ===================== Redis 连接配置 =====================
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 9379
+      password: 123456
+debug: true  # 开启Spring Boot调试模式，会打印自动配置报告
+logging:
+  level:
+    root: info
+    # 专门打印自动配置相关日志
+    org.springframework.boot.autoconfigure: DEBUG
+    org.springframework.ai.mcp: DEBUG  # MCP客户端专属日志

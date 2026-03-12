@@ -4,6 +4,19 @@ spring:
   profiles:
     active: dev
   ai:
+    mcp:
+      client:
+        enabled: true
+        name: spring-ai-mcp-client
+        type: ASYNC
+        sse:
+          connections:
+            server1:
+              url: https://mcp.amap.com
+              sse-endpoint: /sse?key=09557e21174fff33be82c6cf0fa2cbcb
+#            server2:
+#              url: http://localhost:9060
+#              sse-endpoint: /sse
     openai:
       api-key: ${OPENAI_API_KEY}
       base-url: ${OPENAI_BASE_URL}
@@ -21,17 +34,13 @@ spring:
       host: 127.0.0.1
       port: 9379
       password: 123456
+debug: true  # 开启Spring Boot调试模式，会打印自动配置报告
 logging:
   level:
     root: info
-    # 调试 ONNX 加载日志，确认模型生效
-    org.springframework.ai.onnx: debug
-    # 关闭 OpenAI 嵌入日志，减少干扰
-    org.springframework.ai.openai.embedding: error
-    # 打印WebClient的完整请求/响应
-    org.springframework.web.reactive.function.client: TRACE
-    # 打印Spring AI的调试信息
-    org.springframework.ai: DEBUG
+    # 专门打印自动配置相关日志
+    org.springframework.boot.autoconfigure: DEBUG
+    org.springframework.ai.mcp: DEBUG  # MCP客户端专属日志
 internet:
   websearch:
     searxng:

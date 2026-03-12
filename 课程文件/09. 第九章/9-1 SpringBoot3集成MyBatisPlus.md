@@ -106,5 +106,5 @@ public interface ProductMapper extends BaseMapper<Product> {
 }
 ```
 
-Application.java 启动类添加：
+com.itzixi.Application.java 启动类添加：
 `@MapperScan("com.itzixi.mapper")`
